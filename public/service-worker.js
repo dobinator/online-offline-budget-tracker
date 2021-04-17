@@ -1,28 +1,27 @@
-
+const CACHE_NAME = "static-cache-v2";
+const DATA_CACHE_NAME = "data-cache-v1";
+//
 
   //everything from public folder
   const FILES_TO_CACHE = [
     "/",
-    "/index.html",
-    "/assets/css/style.css",
-    "/index.js",
     "/icons/icon-192-192.png",
     "/icons/icon-512-512.png",
+    "/index.html",
+    "/styles.css",
+    "/index.js",
     "/manifest.webmanifest",
     "/indexdb.js",
     
-], 
+]; 
 
-const CACHE_NAME = "static-cache-v2";
-const DATA_CACHE_NAME = "data-cache-v1";
-//
 
 // install
 self.addEventListener("install", function(evt) {
     evt.waitUntil(
       caches.open(CACHE_NAME).then((cache) => {
         console.log("Your files were pre-cached successfully!");
-        return cache.addAll(FILES_TO_CACHE);
+        return cache.addAll(staticFilesToPreCache);
       })
     );
   
@@ -50,6 +49,7 @@ self.addEventListener("install", function(evt) {
   self.addEventListener("fetch", function(evt) {
     // cache successful requests to the API
     if (evt.request.url.includes("/api/")) {
+      console.log('[Service Worker] Fetch (data)', evt.request.url);
       evt.respondWith(
         caches.open(DATA_CACHE_NAME).then(cache => {
           return fetch(evt.request)
