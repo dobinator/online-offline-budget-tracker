@@ -32,13 +32,16 @@ n/a
 
 
 ## Contact:
-  If you need to contact my 
+  If you need to contact me, please email me at dobsonemily@gmail.com 
 
 
-Image:
-
-![online offline budget tracker](assets/screen.png)
 
 Heroku link:
 
 https://budget-tracker-emd.herokuapp.com/
+
+
+Image:
+
+![online offline budget tracker](public/assets/pic.png)
+
