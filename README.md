@@ -35,8 +35,10 @@ n/a
   If you need to contact my 
 
 
-Image
+Image:
 
+![online offline budget tracker](assets/screen.png)
 
 Heroku link:
 
+https://budget-tracker-emd.herokuapp.com/
