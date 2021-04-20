@@ -18,9 +18,10 @@
 ## Installation:
 
 
-
 ## Dependencies:
-
+Express 
+mongoose
+morgan
 
 
 ## Testing:
@@ -28,7 +29,6 @@ n/a
 
 
 ## Questions:
-
 
 
 ## Contact:
