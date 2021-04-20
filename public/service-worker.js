@@ -8,8 +8,8 @@ const DATA_CACHE_NAME = "data-cache-v1";
     "/icons/icon-192x192.png",
     "/icons/icon-512x512.png",
     "/styles.css",
-    "/index.js",
-    "/manifest-webmanifest.json",
+    "./index.js",
+    "./manifest-webmanifest.json",
     "/db.js",
     
 ]; 
@@ -18,7 +18,9 @@ const DATA_CACHE_NAME = "data-cache-v1";
 // install
 self.addEventListener("install", function(evt) {
     evt.waitUntil(
-      caches.open(CACHE_NAME).then((cache) => {
+      caches
+      .open(CACHE_NAME)
+      .then((cache) => {
         console.log("Your files were pre-cached successfully!");
         return cache.addAll(FILES_TO_CACHE);
       })
@@ -29,7 +31,9 @@ self.addEventListener("install", function(evt) {
   
   self.addEventListener("activate", function(evt) {
     evt.waitUntil(
-      caches.keys().then(keyList => {
+      caches
+      .keys()
+      .then(keyList => {
         return Promise.all(
           keyList.map(key => {
             if (key !== CACHE_NAME && key !== DATA_CACHE_NAME) {
